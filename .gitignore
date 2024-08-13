@@ -1,0 +1,9 @@
+node_modules
+
+artifacts
+cache
+.env 
+
+.encryptedKey.json
+node_modules
+dist

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fund Me App - NFT Operations</title>
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+   .top-right {
+        position: absolute;
+        top: 10px;
+        right: 10px; /* Changed from left to right */
+      }
+
+    img {
+        max-width: 30%; /* Reduced max-width */
+        max-height: 300px; /* Optional: you can also limit the height */
+        height: auto;
+        border: 2px solid black; /* Black border around the image */
+      }
+
+    .buttons {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="connectButton" class="top-right">Connect</button>
+
+  <!-- Update the src attribute to the correct path -->
+  <img src="images/luffy-Profile-Picture.jpg" alt="NFT Image" />
+
+  <div class="buttons">
+    <button id="mintButton">Mint NFT</button>
+
+    <label for="tokenId">Token ID:</label>
+    <input id="tokenId" placeholder="Enter token ID" type="number" />
+
+    <button id="burnButton">Burn NFT</button>
+
+    <label for="toAddress">Transfer to Address:</label>
+    <input id="toAddress" placeholder="Enter recipient address" type="text" />
+
+    <button id="transferButton">Transfer NFT</button>
+  </div>
+
+  <script src="./index.js" type="module"></script>
+</body>
+
+</html>
