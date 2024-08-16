@@ -56,6 +56,8 @@ Key functions:
 
 The contract uses OpenZeppelin libraries for security and standard compliance.
 
+Live Url : https://aisquare-assignment.vercel.app/
+
 ## Assignment 2: DeFi Platform
 
 The DeFi platform consists of multiple contracts in the `assignment02_partA_DEFI/contracts` folder:
