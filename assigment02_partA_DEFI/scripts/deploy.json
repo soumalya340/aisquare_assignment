@@ -1,0 +1,8 @@
+{
+  "contractName": "SouSimpleLendingProtocol",
+  "constructorParams": {
+    "param1": "0xC33343596c8b86BF46B7C05F583833079f9115ee",
+    "param2": "0x37cCb2e3e2EDC1beA34F15689E582ec350792Ed5",
+    "param3": "0x94b6C28eB9d5a0a8440505391800cC5C58618cfb"
+  }
+}

@@ -160,7 +160,7 @@ Note: The deployment of this contract encountered some issues, and further resea
 (To be filled after successful deployment)
 
 - SPNFT Contract: https://amoy.polygonscan.com/address/0x901EcD6FFcb03d1E8a6b993C27e39205fDC67526#code
-- SimpleCoin Contract: [address]
-- SouSimpleStaking Contract: [address]
-- SouSwap Contract: [address]
-- SouSimpleLendingProtocol Contract: [address]
+- SimpleCoin Contract: https://amoy.polygonscan.com/address/0x37cCb2e3e2EDC1beA34F15689E582ec350792Ed5#code
+- SouSimpleStaking Contract: https://amoy.polygonscan.com/address/0x3C9B976e7BEc3237De1BBE1c014359Ac654705fF#code
+- SouSwap Contract: https://amoy.polygonscan.com/address/0x94b6C28eB9d5a0a8440505391800cC5C58618cfb#code
+- SouSimpleLendingProtocol Contract: https://amoy.polygonscan.com/address/0xB577699C1113bE7Ec92CcaB6973aBe18C970E2c2#code

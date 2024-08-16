@@ -13,7 +13,8 @@
   "scripts": {
     "test": "hardhat test",
     "coverage": "hardhat coverage",
-    "compile": "hardhat compile"
+    "compile": "hardhat compile",
+    "deploy": "yarn hardhat run scripts/deploy.js"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-verify": "^2.0.7",
