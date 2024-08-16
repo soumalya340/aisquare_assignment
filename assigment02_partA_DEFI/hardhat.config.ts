@@ -6,6 +6,7 @@ import "@nomiclabs/hardhat-truffle5";
 import "@nomiclabs/hardhat-waffle";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
+import 'solidity-docgen'
 
 import "@typechain/hardhat";
 import "@nomiclabs/hardhat-ethers";

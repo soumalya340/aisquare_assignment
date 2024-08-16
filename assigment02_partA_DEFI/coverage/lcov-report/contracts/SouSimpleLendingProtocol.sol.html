@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/SouSimpleLendingProtocol.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> SouSimpleLendingProtocol.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.59% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>50/54</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.43% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>40/56</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">87.5% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>63/72</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "hardhat/console.sol";
+&nbsp;
+interface ISouSwap {
+    function getInputPrice(
+        uint256 input_amount,
+        uint256 input_reserve,
+        uint256 output_reserve
+    ) external pure returns (uint256);
+}
+&nbsp;
+/// @title Simple Lending and Borrowing Protocol with cUSDC and SimpleCoin Collateral
+/// @notice A simplified lending protocol where users deposit USDC to receive cUSDC and borrow USDC by providing SimpleCoin tokens as collateral.
+contract SouSimpleLendingProtocol is ReentrancyGuard {
+    // Constants
+    uint256 public constant COLLATERAL_RATIO = 150; // Collateral ratio in percentage (150%)
+    uint256 public constant INTEREST_RATE = 5; // Annual interest rate (5%)
+    uint256 public constant INTEREST_DENOMINATOR = 100;
+    uint256 public constant SECONDS_PER_YEAR = 31536000; // 365 days
+    uint256 public constant SIMPLECOIN_USDC_PRICE = 2; // 1 SimpleCoin = 2 USDC
+&nbsp;
+    // Struct to hold user account data
+    struct UserAccount {
+        uint256 depositedUSDC; // Amount of USDC deposited by the user
+        uint256 borrowedUSDC; // Amount of USDC borrowed by the user
+        uint256 depositedSimpleCoin; // Amount of SimpleCoin deposited as collateral
+        uint256 depositTimestamp; // Timestamp of the last USDC deposit
+        uint256 borrowTimestamp; // Timestamp of the last USDC borrow
+    }
+&nbsp;
+    // State variables
+    mapping(address =&gt; UserAccount) public accounts; // Mapping of user accounts
+    IERC20 public usdc; // Reference to the USDC token contract
+    IERC20 public simpleCoin; // Reference to the SimpleCoin token contract
+    // Add this as a state variable in SouSimpleLendingProtocol
+    ISouSwap public souSwap;
+&nbsp;
+    // Events
+    event DepositUSDC(address indexed user, uint256 amount);
+    event WithdrawUSDC(address indexed user, uint256 amount);
+    event BorrowUSDC(address indexed user, uint256 amount);
+    event RepayUSDC(address indexed user, uint256 amount);
+    event DepositSimpleCoin(address indexed user, uint256 amount);
+    event WithdrawSimpleCoin(address indexed user, uint256 amount);
+    event Liquidate(address indexed user, uint256 collateral, uint256 debt);
+&nbsp;
+    // Constructor to set the USDC and SimpleCoin token addresses
+    constructor(
+        address _usdcAddress,
+        address _simpleCoinAddress,
+        address _souSwapAddress
+    ) {
+        usdc = IERC20(_usdcAddress);
+        simpleCoin = IERC20(_simpleCoinAddress);
+        souSwap = ISouSwap(_souSwapAddress);
+    }
+&nbsp;
+    /// @notice Allows a user to deposit USDC and receive cUSDC.
+    /// @param amount The amount of USDC to deposit.
+    function depositUSDC(uint256 amount) external {
+        require(amount &gt; 0, "Deposit amount must be greater than 0");
+        require(
+            usdc.balanceOf(msg.sender) &gt;= amount,
+            "Insufficient USDC balance"
+        );
+&nbsp;
+        // Calculate interest if there was a previous deposit
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (accounts[msg.sender].depositedUSDC &gt; 0) {
+<span class="cstat-no" title="statement not covered" >            uint256 interest = calculateInterest(</span>
+                accounts[msg.sender].borrowedUSDC,
+                accounts[msg.sender].borrowTimestamp
+            );
+            accounts[msg.sender].borrowedUSDC += interest;
+        }
+&nbsp;
+        // Transfer USDC to the contract
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(
+            usdc.transferFrom(msg.sender, address(this), amount),
+            "USDC transfer failed"
+        );
+&nbsp;
+        // Update user's deposit balance and timestamp
+        accounts[msg.sender].depositedUSDC += amount;
+        accounts[msg.sender].depositTimestamp = block.timestamp;
+&nbsp;
+        emit DepositUSDC(msg.sender, amount);
+    }
+&nbsp;
+    /// @notice Allows a user to withdraw USDC by burning cUSDC.
+    /// @param amount The amount of USDC to withdraw.
+    function withdrawUSDC(uint256 amount) external <span class="missing-if-branch" title="else path not taken" >E</span>nonReentrant {
+        require(amount &gt; 0, "Withdraw amount must be greater than 0");
+        require(
+            accounts[msg.sender].depositedUSDC &gt;= amount,
+            "Insufficient deposited USDC"
+        );
+&nbsp;
+        uint256 interest = calculateInterest(
+            accounts[msg.sender].borrowedUSDC,
+            accounts[msg.sender].borrowTimestamp
+        );
+        uint256 totalBalance = accounts[msg.sender].depositedUSDC + interest;
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(totalBalance &gt;= amount, "Insufficient balance after interest");
+&nbsp;
+        // Update user's balance and timestamp
+        accounts[msg.sender].depositedUSDC = totalBalance - amount;
+        accounts[msg.sender].depositTimestamp = block.timestamp;
+&nbsp;
+        // Transfer USDC to the user
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(usdc.transfer(msg.sender, amount), "USDC transfer failed");
+&nbsp;
+        emit WithdrawUSDC(msg.sender, amount);
+    }
+&nbsp;
+    /// @notice Allows a user to deposit SimpleCoin as collateral.
+    /// @param amount The amount of SimpleCoin to deposit.
+    function depositSimpleCoinAsCollateral(uint256 amount) external {
+        require(amount &gt; 0, "Deposit amount must be greater than 0");
+        require(
+            simpleCoin.balanceOf(msg.sender) &gt;= amount,
+            "Insufficient SimpleCoin balance"
+        );
+&nbsp;
+        // Transfer SimpleCoin to the contract
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(
+            simpleCoin.transferFrom(msg.sender, address(this), amount),
+            "SimpleCoin transfer failed"
+        );
+&nbsp;
+        // Update user's SimpleCoin collateral balance
+        accounts[msg.sender].depositedSimpleCoin += amount;
+&nbsp;
+        emit DepositSimpleCoin(msg.sender, amount);
+    }
+&nbsp;
+    /// @notice Allows a user to withdraw SimpleCoin if they have enough collateral after the withdrawal.
+    /// @param amount The amount of SimpleCoin to withdraw.
+    function withdrawSimpleCoin(uint256 amount) external <span class="missing-if-branch" title="else path not taken" >E</span>nonReentrant {
+        require(amount &gt; 0, "Withdraw amount must be greater than 0");
+        require(
+            accounts[msg.sender].depositedSimpleCoin &gt;= amount,
+            "Insufficient SimpleCoin balance"
+        );
+        uint256 value = accounts[msg.sender].depositedSimpleCoin - amount;
+        uint256 collateralValueInUSDC = getCollateralValueInUSDC(value);
+        uint256 requiredCollateral = (accounts[msg.sender].borrowedUSDC *
+            COLLATERAL_RATIO) / 100;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(
+            collateralValueInUSDC &gt;= requiredCollateral,
+            "Insufficient collateral after withdrawal"
+        );
+&nbsp;
+        // Update user's SimpleCoin collateral balance
+        accounts[msg.sender].depositedSimpleCoin -= amount;
+        // Transfer SimpleCoin to the user
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(
+            simpleCoin.transfer(msg.sender, amount),
+            "SimpleCoin transfer failed"
+        );
+&nbsp;
+        emit WithdrawSimpleCoin(msg.sender, amount);
+    }
+&nbsp;
+    /// @notice Allows a user to borrow USDC using their deposited SimpleCoin as collateral.
+    /// @param amount The amount of USDC to borrow.
+    function borrowUSDC(uint256 amount) external <span class="missing-if-branch" title="else path not taken" >E</span>nonReentrant {
+        require(amount &gt; 0, "Borrow amount must be greater than 0");
+&nbsp;
+        uint256 collateralValueInUSDC = getCollateralValueInUSDC(
+            accounts[msg.sender].depositedSimpleCoin
+        );
+        uint256 borrowValue = accounts[msg.sender].borrowedUSDC + amount;
+        uint256 requiredCollateral = (borrowValue * COLLATERAL_RATIO) / 100;
+&nbsp;
+        require(
+            collateralValueInUSDC &gt;= requiredCollateral,
+            "Insufficient collateral for this borrow"
+        );
+        // Transfer USDC to the borrower
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(usdc.transfer(msg.sender, amount), "USDC transfer failed");
+        // Update user's borrow balance and timestamp
+        accounts[msg.sender].borrowedUSDC += amount;
+        accounts[msg.sender].borrowTimestamp = block.timestamp;
+&nbsp;
+        emit BorrowUSDC(msg.sender, amount);
+    }
+&nbsp;
+    /// @notice Allows a user to repay their borrowed USDC with interest.
+    /// @param amount The amount of USDC to repay.
+    function repayUSDC(uint256 amount) external {
+        require(amount &gt; 0, "Repay amount must be greater than 0");
+        require(accounts[msg.sender].borrowedUSDC &gt; 0, "No active borrow");
+&nbsp;
+        uint256 interest = calculateInterest(
+            accounts[msg.sender].borrowedUSDC,
+            accounts[msg.sender].borrowTimestamp
+        );
+        uint256 totalDebt = accounts[msg.sender].borrowedUSDC + interest;
+&nbsp;
+        require(totalDebt &gt;= amount, "Repay amount exceeds debt");
+&nbsp;
+        // Transfer USDC from the user to the contract
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(
+            usdc.transferFrom(msg.sender, address(this), amount),
+            "USDC transfer failed"
+        );
+&nbsp;
+        // Update user's borrow balance and timestamp
+        accounts[msg.sender].borrowedUSDC = totalDebt - amount;
+        accounts[msg.sender].borrowTimestamp = block.timestamp;
+&nbsp;
+        emit RepayUSDC(msg.sender, amount);
+    }
+&nbsp;
+    /// @notice Allows anyone to liquidate a user's collateral if their collateral ratio falls below 150%.
+    /// @param user The address of the user to liquidate.
+    function liquidate(address user) external <span class="missing-if-branch" title="else path not taken" >E</span>nonReentrant {
+        uint256 collateralValueInUSDC = getCollateralValueInUSDC(
+            accounts[user].depositedSimpleCoin
+        );
+        uint256 borrowValue = accounts[user].borrowedUSDC;
+        uint256 requiredCollateral = (borrowValue * COLLATERAL_RATIO) / 100;
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>require(
+            collateralValueInUSDC &lt; requiredCollateral,
+            "User's collateral ratio is sufficient"
+        );
+&nbsp;
+        // Seize the user's collateral
+<span class="cstat-no" title="statement not covered" >        uint256 liquidationAmountSimpleCoin = accounts[user]</span>
+            .depositedSimpleCoin;
+&nbsp;
+        accounts[user].depositedSimpleCoin = 0;
+        accounts[user].borrowedUSDC = 0;
+        accounts[user].depositTimestamp = 0;
+        accounts[user].borrowTimestamp = 0;
+&nbsp;
+        // Transfer the seized SimpleCoin to the liquidator
+<span class="cstat-no" title="statement not covered" >        require(</span>
+            simpleCoin.transfer(msg.sender, liquidationAmountSimpleCoin),
+            "SimpleCoin transfer failed"
+        );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        emit Liquidate(user, liquidationAmountSimpleCoin, borrowValue);</span>
+    }
+&nbsp;
+    /// @notice Calculates interest for a given amount based on the time elapsed.
+    /// @param principal The principal amount.
+    /// @param timestamp The timestamp of the last deposit or borrow.
+    /// @return The interest accrued.
+    function calculateInterest(
+        uint256 principal,
+        uint256 timestamp
+    ) internal view returns (uint256) {
+        uint256 timeElapsed = block.timestamp - timestamp;
+        uint256 interest = (principal * INTEREST_RATE * timeElapsed) /
+            (INTEREST_DENOMINATOR * SECONDS_PER_YEAR);
+        return interest;
+    }
+&nbsp;
+    /// @notice Gets the value of a user's deposited SimpleCoin in terms of USDC.
+    /// @param simpleCoinAmount The amount of SimpleCoin deposited.
+    /// @return The equivalent value in USDC.
+    function getCollateralValueInUSDC(
+        uint256 simpleCoinAmount
+    ) public view returns (uint256) {
+        // Get the SimpleCoin to ETH price from SouSwap
+        uint256 simpleCoinReserve = simpleCoin.balanceOf(address(souSwap));
+        uint256 ethReserve = address(souSwap).balance;
+        // Calculate how much ETH we would get for the simpleCoinAmount
+        uint256 ethAmount = souSwap.getInputPrice(
+            simpleCoinAmount,
+            simpleCoinReserve,
+            ethReserve
+        );
+        /// Convert ETH to USDC (assuming 1 ETH = 2000 USDC)
+        /// Oracles can be used in place of this
+        uint256 usdcValue = ethAmount * 2000;
+&nbsp;
+        return usdcValue;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Aug 16 2024 11:51:49 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
