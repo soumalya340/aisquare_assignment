@@ -4,58 +4,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund Me App - NFT Operations</title>
+  <title>SPNFT Interaction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    body,
-    html {
-      height: 100%;
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
       margin: 0;
+      padding: 0;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
     }
 
-   .top-right {
-        position: absolute;
-        top: 10px;
-        right: 10px; /* Changed from left to right */
-      }
+    header {
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
 
-    img {
-        max-width: 30%; /* Reduced max-width */
-        max-height: 300px; /* Optional: you can also limit the height */
-        height: auto;
-        border: 2px solid black; /* Black border around the image */
-      }
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
 
-    .buttons {
+    .container {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .action-group {
       margin-top: 20px;
+    }
+
+    #connectButton {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .image-container img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
 
 <body>
-  <button id="connectButton" class="top-right">Connect</button>
+  <header>
+    <h1>SPNFT Interaction</h1>
+    <button id="connectButton">Connect</button>
+  </header>
 
-  <!-- Update the src attribute to the correct path -->
-  <img src="images/luffy-Profile-Picture.jpg" alt="NFT Image" />
-
-  <div class="buttons">
-    <button id="mintButton">Mint NFT</button>
-
-    <label for="tokenId">Token ID:</label>
-    <input id="tokenId" placeholder="Enter token ID" type="number" />
-
-    <button id="burnButton">Burn NFT</button>
-
-    <label for="toAddress">Transfer to Address:</label>
-    <input id="toAddress" placeholder="Enter recipient address" type="text" />
-
-    <button id="transferButton">Transfer NFT</button>
+  <div class="image-container">
+    <img src="./images/luffy-Profile-Picture.jpg" alt="Luffy Profile Picture">
   </div>
 
-  <script src="./index.js" type="module"></script>
+  <div class="container">
+    <div class="action-group">
+      <button id="mintButton">Mint NFT</button>
+    </div>
+
+    <div class="action-group">
+      <input type="text" id="burnTokenId" placeholder="Token ID to Burn">
+      <button id="burnButton">Burn NFT</button>
+    </div>
+
+    <div class="action-group">
+      <input type="text" id="transferTokenId" placeholder="Token ID to Transfer">
+      <input type="text" id="toAddress" placeholder="Transfer to Address">
+      <button id="transferButton">Transfer NFT</button>
+    </div>
+  </div>
+
+  <script type="module" src="./index.js"></script>
 </body>
 
 </html>

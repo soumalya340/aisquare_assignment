@@ -14,13 +14,24 @@ transferButton.onclick = transferNFT
 async function connect() {
     if (typeof window.ethereum !== "undefined") {
         try {
+            // Check if the current network is Amoy
+            const chainId = await ethereum.request({ method: "eth_chainId" })
+            if (chainId !== "0x13882") {
+                // 80002 in hex
+                await ethereum.request({
+                    method: "wallet_switchEthereumChain",
+                    params: [{ chainId: "0x13882" }],
+                })
+            }
+
             await ethereum.request({ method: "eth_requestAccounts" })
+            connectButton.innerHTML = "Connected"
+            const accounts = await ethereum.request({ method: "eth_accounts" })
+            console.log(accounts)
         } catch (error) {
             console.log(error)
+            connectButton.innerHTML = "Connection Failed"
         }
-        connectButton.innerHTML = "Connected"
-        const accounts = await ethereum.request({ method: "eth_accounts" })
-        console.log(accounts)
     } else {
         connectButton.innerHTML = "Please install MetaMask"
     }
@@ -41,7 +52,7 @@ async function mintNFT() {
 
 async function burnNFT() {
     await connect()
-    const tokenId = document.getElementById("tokenId").value
+    const tokenId = document.getElementById("burnTokenId").value
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     const contract = new ethers.Contract(contractAddress, abi, signer)
@@ -56,13 +67,13 @@ async function burnNFT() {
 async function transferNFT() {
     await connect()
     const toAddress = document.getElementById("toAddress").value
-    const tokenId = document.getElementById("tokenId").value
+    const tokenId = document.getElementById("transferTokenId").value
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     const contract = new ethers.Contract(contractAddress, abi, signer)
     try {
         const transactionResponse = await contract.transferFrom(
-            signer.getAddress(),
+            await signer.getAddress(),
             toAddress,
             tokenId
         )
